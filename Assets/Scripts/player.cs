@@ -11,7 +11,7 @@ public class player : MonoBehaviour
 
     //Private Game Variables
     private Rigidbody2D pRigid;
-    private bool ghostControl = false;
+    static public bool ghostControl = false;
     private bool slowdown = false;
 
     void Start() {
@@ -30,7 +30,7 @@ public class player : MonoBehaviour
         {
             pRigid.velocity = pRigid.velocity * .9f;
         }
-        if(Input.GetKeyDown("space")) {
+        if(Input.GetKeyDown("space") && !ghostControl) {
             Debug.Log("Space Pressed");
             //Stop player from moving
             slowdown = true;
