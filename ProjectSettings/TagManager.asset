@@ -17,9 +17,9 @@ TagManager:
   - 
   - 
   - Player
+  - Bridges
   - LevelObject
   - Background
-  - 
   - 
   - 
   - 
@@ -43,12 +43,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Player
-    uniqueID: 1795483557
+  - name: Level
+    uniqueID: 2540537947
     locked: 0
   - name: Background Objects
     uniqueID: 974260363
     locked: 0
-  - name: Level
-    uniqueID: 2540537947
+  - name: Player
+    uniqueID: 1795483557
     locked: 0
