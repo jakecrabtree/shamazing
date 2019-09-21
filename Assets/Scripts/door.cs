@@ -16,6 +16,7 @@ public class Door : MonoBehaviour
     
     public void Open()
     {
+        Debug.Log("Open");
         if (++_currSwitches == requiredSwitches)
         {
             _collider.enabled = false;
@@ -26,6 +27,7 @@ public class Door : MonoBehaviour
 
     public void Close()
     {
+        Debug.Log("Close");
         --_currSwitches;
         _collider.enabled = true;
         //TODO animation
