@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class poop : MonoBehaviour
+public class reverseData : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
