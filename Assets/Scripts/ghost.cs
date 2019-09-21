@@ -4,29 +4,17 @@ using UnityEngine;
 
 public class ghost : MonoBehaviour
 {
-    /* private float timeRemaining = 10f;
-    private float walkSpeed = 10f;
-    private Rigidbody2D gRigid; */
+    public List<timeDataPoint> dataPoints = new List<timeDataPoint>();
+    timeDataPoint curPoint;
 
-    public struct timeDataPoint {
-        int pos_x;
-        int pos_y;
-        int x_dir; //-1, 0, or 1
-        int y_dir; //-1, 0, or 1
-        float time1;
-        float time2;
-    }
-
-    public List<timeDataPoint> dataPoints;
-
-    void Start() {
-        //gRigid = gameObject.GetComponent<Rigidbody2D>();
-        dataPoints = new List<timeDataPoint>();
-    }
-    void FixedUpdate() {
-
-    }
-    void addDataPoint() {
-
+    public void addDataPoint(float dir_x, float dir_y, float x, float y, float time) {
+        curPoint = new timeDataPoint();
+        curPoint.pos_x = x;
+        curPoint.pos_y = y;
+        curPoint.x_dir = dir_x;
+        curPoint.y_dir = dir_y;
+        curPoint.time = time;
+        dataPoints.Add(curPoint);
+        //Debug.Log(x + " " + y + " " + dir_x + " " + dir_y + " " + time);
     }
 }

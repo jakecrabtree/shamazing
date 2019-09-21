@@ -24,9 +24,5 @@ public class player : MonoBehaviour
         pRigid.velocity = new Vector2(Mathf.Lerp(0, Input.GetAxis("Horizontal") * walkSpeed, 0.8f),
             Mathf.Lerp(0, Input.GetAxis("Vertical") * walkSpeed, 0.8f));
         //after player control swaps to ghost, slow player to a nice stop rather than just have it freeze
-        if(Input.GetKeyDown("space")) {
-            Debug.Log("Space Pressed - Reset");
-            
-        }
     }
 }

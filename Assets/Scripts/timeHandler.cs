@@ -8,39 +8,81 @@ public class timeHandler : MonoBehaviour
     public GameObject spawnPoint;
     public GameObject player;
     public GameObject ghost;
+    private GameObject curGhost;
 
     private List<ghost> ghosts;
     private ghost currentGhost;
 
-    int prev_x;
-    int prev_y;
+    float prev_x;
+    float prev_y;
+    float cur_x;
+    float cur_y;
+    float timeElapsed;
 
     void Start()
     {
-        Instantiate(player, spawnPoint.transform.position, Quaternion.identity);
+        //Instantiate New Ghost List and currentGhost
         ghosts = new List<ghost>();
         currentGhost = new ghost();
-
-        prev_x;
-        prev_y;
+        //Call level reset
+        levelReset();
     }
+    void levelReset()
+    {
+        Debug.Log("Level Reset Called");
+        //Instantiate new player
+        player = Instantiate(player, spawnPoint.transform.position, Quaternion.identity);
+        Debug.Log("Player Instantiated");
+        //for each ghost in ghost list:
+        foreach(ghost ghah in ghosts) {
+            Debug.Log("For Entered");
+            //instantiate new ghost object, set to curGhost
+            curGhost = Instantiate(ghost, spawnPoint.transform.position, Quaternion.identity);
+            //curGhost set the move list in the new object to the current ghost
+            curGhost.GetComponent<ghostObject>().getMove(ghah);
+        }
+        //set prev_x and y to current movement (so if they're holding a key down when they respawn
+        //it keeps movement
+        prev_x = Input.GetAxisRaw("Horizontal");
+        prev_y = Input.GetAxisRaw("Vertical");
+        timeElapsed = 0f;
 
+        //add blank datapoint to currentGhost dataPoint list
+        currentGhost.addDataPoint(prev_x, prev_y, player.transform.position.x, player.transform.position.y, timeElapsed);
+    }
     void FixedUpdate()
     {
-        if(Input.GetAxisRaw("Horizontal") != prev_x || Input.GetAxisRaw("Vertical") != prev_y)
-        {
+        //Current InputRaw
+        cur_x = Input.GetAxisRaw("Horizontal");
+        cur_y = Input.GetAxisRaw("Vertical");
+        // Increase TimeElapsed
+        timeElapsed += Time.fixedTime;
 
-        }
-        /*timeRemaining -= time.fixedTime;
-        if (timeRemaining < 0)
+        // If we've recieved a new input:
+        if(cur_x != prev_x || cur_y != prev_y)
         {
+            Debug.Log("Change in Input");
+            //Change prev_x and prev_y to current directions
+            prev_x = cur_x;
+            prev_y = cur_y;
+            //add new data point
+            currentGhost.addDataPoint(cur_x, cur_y, player.transform.position.x, player.transform.position.y, timeElapsed);
+            //reset elapsed time since last call
+            timeElapsed = 0f;
+        }
+        if (Input.GetKeyDown("space"))
+        {
+            //For testing purposes:
+            //press space to reset the level
+            Debug.Log("Space Pressed - Reset");
             resetLevel();
-            Debug.Log("Object should be destroyed");
-        } */
+        }
     }
     void resetLevel() {
-
+        //Add current ghost to the ghost list
         ghosts.Add(currentGhost);
         currentGhost = new ghost();
+        Destroy(player);
+        levelReset();
     }
 }
