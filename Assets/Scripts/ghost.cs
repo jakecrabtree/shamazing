@@ -1,20 +1,36 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ghost : MonoBehaviour
+public class Ghost : MonoBehaviour
 {
-    public List<timeDataPoint> dataPoints = new List<timeDataPoint>();
-    timeDataPoint curPoint;
+    //Object Variables
+    private float walkSpeed = 10f;
+    private Rigidbody2D gRigid;
 
-    public void addDataPoint(float dir_x, float dir_y, float x, float y, float time) {
-        curPoint = new timeDataPoint();
-        curPoint.pos_x = x;
-        curPoint.pos_y = y;
-        curPoint.x_dir = dir_x;
-        curPoint.y_dir = dir_y;
-        curPoint.time = time;
-        dataPoints.Add(curPoint);
-        //Debug.Log(x + " " + y + " " + dir_x + " " + dir_y + " " + time);
+    private Path _path;
+
+    //set move list
+    public void Move(Path path)
+    {
+        _path = path;
+        gRigid = GetComponent<Rigidbody2D>();
+        StartCoroutine(MoveAlongPath());
     }
+
+    IEnumerator MoveAlongPath()
+    {
+        TimeDataPoint point;
+        for (int i = 0; i < _path.Size() - 1; ++i)
+        {
+            point = _path.Get(i);
+            TimeDataPoint nextPoint = _path.Get(i + 1);
+            gRigid.velocity = new Vector2(walkSpeed* point.x_dir, walkSpeed* point.y_dir);
+            yield return new WaitForSeconds(nextPoint.time);
+        }
+        point = _path.Get(_path.Size() - 1);
+        gRigid.velocity = walkSpeed * new Vector2(point.x_dir, point.y_dir);
+    }
+    
 }

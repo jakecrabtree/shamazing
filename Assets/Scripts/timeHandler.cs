@@ -1,20 +1,20 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class timeHandler : MonoBehaviour
+public class TimeHandler : MonoBehaviour
 {
-    public float timeRemaining = 10f;
+    public float ghostTime = 5f;
     public GameObject spawnPoint;
-    public GameObject player;
-    public GameObject ghost;
-    private GameObject ghostBeingInstantiated;
-
-    private List<ghost> ghosts;
-    private ghost currentGhost;
-
-    float prev_x;
-    float prev_y;
+    public GameObject playerPrefab;
+    public GameObject ghostPrefab;
+    private GameObject _player;
+    private List<GameObject> _spawnedGhosts = new List<GameObject>();
+    
+    private List<Path> _paths;
+    private Path _currentPath;
+    
     float cur_x;
     float cur_y;
     float timeElapsed;
@@ -22,33 +22,31 @@ public class timeHandler : MonoBehaviour
     void Start()
     {
         //Instantiate New Ghost List and currentGhost
-        ghosts = new List<ghost>();
-        currentGhost = new ghost();
+        _paths = new List<Path>();
+        _currentPath = new Path();
         //Call level reset
-        levelReset();
+        ResetLevel();
     }
-    void levelReset()
+    void ResetLevel()
     {
-        Debug.Log("Level Reset Called");
         //Instantiate new player
-        player = Instantiate(player, spawnPoint.transform.position, Quaternion.identity);
-        Debug.Log("Player Instantiated");
+        _player = Instantiate(playerPrefab, spawnPoint.transform.position, Quaternion.identity);
         //for each ghost in ghost list:
-        foreach(ghost ghah in ghosts) {
-            Debug.Log("For Entered");
+        foreach(Path path in _paths) {
             //instantiate new ghost object, set to curGhost
-            ghostBeingInstantiated = Instantiate(ghost, spawnPoint.transform.position, Quaternion.identity);
+            GameObject ghostBeingInstantiated = Instantiate(ghostPrefab, spawnPoint.transform.position, Quaternion.identity);
             //curGhost set the move list in the new object to the current ghost
-            ghostBeingInstantiated.GetComponent<ghostObject>().getMove(ghah);
+            ghostBeingInstantiated.GetComponent<Ghost>().Move(path);
+            _spawnedGhosts.Add(ghostBeingInstantiated);
         }
         //set prev_x and y to current movement (so if they're holding a key down when they respawn
         //it keeps movement
-        prev_x = Input.GetAxisRaw("Horizontal");
-        prev_y = Input.GetAxisRaw("Vertical");
+        float initialX = Input.GetAxisRaw("Horizontal");
+        float initialY = Input.GetAxisRaw("Vertical");
         timeElapsed = 0f;
 
         //add blank datapoint to currentGhost dataPoint list
-        currentGhost.addDataPoint(prev_x, prev_y, player.transform.position.x, player.transform.position.y, timeElapsed);
+        _currentPath.AddDataPoint(initialX, initialY, timeElapsed);
     }
     void FixedUpdate()
     {
@@ -56,17 +54,16 @@ public class timeHandler : MonoBehaviour
         cur_x = Input.GetAxisRaw("Horizontal");
         cur_y = Input.GetAxisRaw("Vertical");
         // Increase TimeElapsed
-        timeElapsed += Time.fixedTime;
+        timeElapsed += Time.deltaTime;
+
+        TimeDataPoint prev = _currentPath.Back();
 
         // If we've recieved a new input:
-        if(cur_x != prev_x || cur_y != prev_y)
+        if((int)Math.Round(cur_y, 0) != (int)Math.Round(prev.y_dir, 0) ||
+               (int)Math.Round(cur_x, 0) != (int)Math.Round(prev.x_dir, 0))
         {
-            Debug.Log("Change in Input");
-            //Change prev_x and prev_y to current directions
-            prev_x = cur_x;
-            prev_y = cur_y;
             //add new data point
-            currentGhost.addDataPoint(cur_x, cur_y, player.transform.position.x, player.transform.position.y, timeElapsed);
+            _currentPath.AddDataPoint(cur_x, cur_y,  timeElapsed);
             //reset elapsed time since last call
             timeElapsed = 0f;
         }
@@ -77,15 +74,15 @@ public class timeHandler : MonoBehaviour
         {
             //For testing purposes:
             //press space to reset the level
-            Debug.Log("Space Pressed - Reset");
-            resetLevel();
+            _paths.Add(_currentPath);
+            _currentPath = new Path();
+            Destroy(_player);
+            foreach (GameObject ghost in _spawnedGhosts)
+            {
+                Destroy(ghost);
+            }
+            _spawnedGhosts.Clear();
+            ResetLevel();
         }
-    }
-    void resetLevel() {
-        //Add current ghost to the ghost list
-        ghosts.Add(currentGhost);
-        currentGhost = new ghost();
-        //Destroy(player);
-        levelReset();
     }
 }
