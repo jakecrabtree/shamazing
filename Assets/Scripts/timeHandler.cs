@@ -8,7 +8,7 @@ public class timeHandler : MonoBehaviour
     public GameObject spawnPoint;
     public GameObject player;
     public GameObject ghost;
-    private GameObject curGhost;
+    private GameObject ghostBeingInstantiated;
 
     private List<ghost> ghosts;
     private ghost currentGhost;
@@ -37,9 +37,9 @@ public class timeHandler : MonoBehaviour
         foreach(ghost ghah in ghosts) {
             Debug.Log("For Entered");
             //instantiate new ghost object, set to curGhost
-            curGhost = Instantiate(ghost, spawnPoint.transform.position, Quaternion.identity);
+            ghostBeingInstantiated = Instantiate(ghost, spawnPoint.transform.position, Quaternion.identity);
             //curGhost set the move list in the new object to the current ghost
-            curGhost.GetComponent<ghostObject>().getMove(ghah);
+            ghostBeingInstantiated.GetComponent<ghostObject>().getMove(ghah);
         }
         //set prev_x and y to current movement (so if they're holding a key down when they respawn
         //it keeps movement
@@ -70,6 +70,9 @@ public class timeHandler : MonoBehaviour
             //reset elapsed time since last call
             timeElapsed = 0f;
         }
+    }
+    void Update()
+    {
         if (Input.GetKeyDown("space"))
         {
             //For testing purposes:
@@ -82,7 +85,7 @@ public class timeHandler : MonoBehaviour
         //Add current ghost to the ghost list
         ghosts.Add(currentGhost);
         currentGhost = new ghost();
-        Destroy(player);
+        //Destroy(player);
         levelReset();
     }
 }
