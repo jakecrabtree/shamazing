@@ -16,6 +16,17 @@ public class TotemSwitch : MonoBehaviour
 
     [SerializeField] private objectTypes dropdown;
 
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip activationSound;
+    [SerializeField] private AudioClip deactivationSound;
+
+    private void Awake()
+    {
+        if(audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
+    }
 
     private void On()
     {
@@ -28,6 +39,8 @@ public class TotemSwitch : MonoBehaviour
                 log.Halt();
                 break;
         }
+        audioSource.clip = activationSound;
+        audioSource.Play();
     }
 
     private void Off()
@@ -41,6 +54,8 @@ public class TotemSwitch : MonoBehaviour
                 log.Spin();
                 break;
         }
+        audioSource.clip = deactivationSound;
+        audioSource.Play();
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
