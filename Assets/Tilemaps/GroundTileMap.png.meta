@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: 48b57fc3d449ce84483ead86048bedac
+guid: 2ddd81cc40c6c7241bd5819cad0c3083
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6134158372712744643
-    second: switchTileMap_0
+      213: -6948808926153616691
+    second: GroundTileMap_0
   - first:
-      213: -3532113566081192788
-    second: switchTileMap_1
+      213: -5888961564566176843
+    second: GroundTileMap_1
   - first:
-      213: 8273422130371265678
-    second: switchTileMap_2
+      213: 5782688459661384078
+    second: GroundTileMap_2
   - first:
-      213: -138251970629878052
-    second: switchTileMap_3
+      213: -5619392765586228472
+    second: GroundTileMap_3
   - first:
-      213: -3130714208323665858
-    second: switchTileMap_4
+      213: 1650711110061866854
+    second: GroundTileMap_4
   - first:
-      213: -4255686060629609551
-    second: switchTileMap_5
+      213: 7426258320189096830
+    second: GroundTileMap_5
   - first:
-      213: -819058660738966639
-    second: switchTileMap_6
+      213: -7544710663424074259
+    second: GroundTileMap_6
   - first:
-      213: 8218742787023101977
-    second: switchTileMap_7
+      213: -1291416801480110182
+    second: GroundTileMap_7
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -110,7 +110,112 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: switchTileMap_0
+      name: GroundTileMap_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff53e761619de9f468477ca7dfd0686e
+      internalID: -6948808926153616691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GroundTileMap_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99ea65aa09a79ba4dbb596466f60cdb0
+      internalID: -5888961564566176843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GroundTileMap_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65ad32c9e5631af4dbed58d433da7dfc
+      internalID: 5782688459661384078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GroundTileMap_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 272adea869e33f5408f7dd48299920f6
+      internalID: -5619392765586228472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GroundTileMap_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d6d76d8f9f926f45a28ac24a49878db
+      internalID: 1650711110061866854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: GroundTileMap_5
       rect:
         serializedVersion: 2
         x: 0
@@ -124,14 +229,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e747bf65be7e545498d3f133e0161c57
-      internalID: -6134158372712744643
+      spriteID: 16151e9468896a44bbeee3cefcdb1441
+      internalID: 7426258320189096830
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: switchTileMap_1
+      name: GroundTileMap_6
       rect:
         serializedVersion: 2
         x: 64
@@ -145,14 +250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e0fa739d3919e634db8d2db0666b0ef5
-      internalID: -3532113566081192788
+      spriteID: 1c5501bfe75527349b4f818ef4e5d879
+      internalID: -7544710663424074259
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: switchTileMap_2
+      name: GroundTileMap_7
       rect:
         serializedVersion: 2
         x: 128
@@ -166,113 +271,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8b37e5caf12621040809a37ccc6531ee
-      internalID: 8273422130371265678
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: switchTileMap_3
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 464c93a12b855064c9bca4934bf20275
-      internalID: -138251970629878052
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: switchTileMap_4
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fff81248f22f9d14bb24311db32f668d
-      internalID: -3130714208323665858
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: switchTileMap_5
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ce2cd66b4436b204083d3a2b78a53df2
-      internalID: -4255686060629609551
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: switchTileMap_6
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 654364a029161404baf00e07e6c83a3d
-      internalID: -819058660738966639
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: switchTileMap_7
-      rect:
-        serializedVersion: 2
-        x: 448
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 11258f2c22ff5314e949f5db48db6bcc
-      internalID: 8218742787023101977
+      spriteID: 5c150abe257a4d9448e3ffe2843100e7
+      internalID: -1291416801480110182
       vertices: []
       indices: 
       edges: []
