@@ -4,31 +4,29 @@ using UnityEngine;
 
 public class ghost : MonoBehaviour
 {
-    private float timeRemaining = 10f;
+    /* private float timeRemaining = 10f;
     private float walkSpeed = 10f;
-    private Rigidbody2D gRigid;
+    private Rigidbody2D gRigid; */
+
+    public struct timeDataPoint {
+        int pos_x;
+        int pos_y;
+        int x_dir; //-1, 0, or 1
+        int y_dir; //-1, 0, or 1
+        float time1;
+        float time2;
+    }
+
+    public List<timeDataPoint> dataPoints;
 
     void Start() {
-        gRigid = gameObject.GetComponent<Rigidbody2D>();
+        //gRigid = gameObject.GetComponent<Rigidbody2D>();
+        dataPoints = new List<timeDataPoint>();
     }
     void FixedUpdate() {
 
-        if(player.ghostControl) {
-            gRigid.velocity = new Vector2(Mathf.Lerp(0, Input.GetAxis("Horizontal") * walkSpeed, 0.8f),
-                Mathf.Lerp(0, Input.GetAxis("Vertical") * walkSpeed, 0.8f));
-        }
+    }
+    void addDataPoint() {
 
-        if (Input.GetKeyDown("space")) {
-            player.ghostControl = false;
-        }
-        if (player.ghostControl == false && gRigid.velocity != new Vector2(0, 0)) {
-            gRigid.velocity = gRigid.velocity * .9f;
-        }
-        timeRemaining -= Time.deltaTime;
-        if (timeRemaining < 0) {
-            player.ghostControl = false;
-            Destroy(gameObject);
-            Debug.Log("Object should be destroyed");
-        }
     }
 }

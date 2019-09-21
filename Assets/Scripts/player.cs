@@ -21,23 +21,12 @@ public class player : MonoBehaviour
     void FixedUpdate() {
 
         //if we're not controlling a ghost, get keyboard input and translate the player
-        if(!ghostControl) {
-            pRigid.velocity = new Vector2(Mathf.Lerp(0, Input.GetAxis("Horizontal") * walkSpeed, 0.8f),
-                Mathf.Lerp(0, Input.GetAxis("Vertical") * walkSpeed, 0.8f));
-        }
+        pRigid.velocity = new Vector2(Mathf.Lerp(0, Input.GetAxis("Horizontal") * walkSpeed, 0.8f),
+            Mathf.Lerp(0, Input.GetAxis("Vertical") * walkSpeed, 0.8f));
         //after player control swaps to ghost, slow player to a nice stop rather than just have it freeze
-        if(slowdown && pRigid.velocity != new Vector2(0,0))
-        {
-            pRigid.velocity = pRigid.velocity * .9f;
-        }
-        if(Input.GetKeyDown("space") && !ghostControl) {
-            Debug.Log("Space Pressed");
-            //Stop player from moving
-            slowdown = true;
-            //activate ghost control
-            ghostControl = true;
-            //create ghost gameObject
-            Instantiate(ghostPrefab, this.transform.position, Quaternion.identity);
+        if(Input.GetKeyDown("space")) {
+            Debug.Log("Space Pressed - Reset");
+            
         }
     }
 }
