@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class player : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float walkSpeed = 10f;
+    Rigidbody2D pRigid;
+
     void Start()
     {
-        
+        pRigid = gameObject.GetComponent<Rigidbody2D>();
     }
-
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        //debug.log(time.deltaTime());    
+        pRigid.velocity = new Vector2(Mathf.Lerp(0, Input.GetAxis("Horizontal") * walkSpeed, 0.8f),
+            Mathf.Lerp(0, Input.GetAxis("Vertical") * walkSpeed, 0.8f));
     }
 }
