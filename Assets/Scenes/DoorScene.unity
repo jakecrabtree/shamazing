@@ -596,10 +596,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72b155fad0b8c3a49940db9bd5826281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeRemaining: 10
+  ghostTime: 5
   spawnPoint: {fileID: 1537612764}
-  player: {fileID: 3307009339937291658, guid: b8f8f93671973a945bc79d6620bc6bf3, type: 3}
-  ghost: {fileID: 5078364213318904648, guid: 61a581000a42941169e1074ccf9d9555, type: 3}
+  playerPrefab: {fileID: 3307009339937291658, guid: b8f8f93671973a945bc79d6620bc6bf3,
+    type: 3}
+  ghostPrefab: {fileID: 5078364213318904648, guid: 61a581000a42941169e1074ccf9d9555,
+    type: 3}
 --- !u!1001 &9195499341038557323
 PrefabInstance:
   m_ObjectHideFlags: 0
