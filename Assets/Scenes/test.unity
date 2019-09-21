@@ -149,10 +149,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72b155fad0b8c3a49940db9bd5826281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeRemaining: 10
+  ghostTime: 5
   spawnPoint: {fileID: 1282714359}
-  player: {fileID: 3307009339937291658, guid: b8f8f93671973a945bc79d6620bc6bf3, type: 3}
-  ghost: {fileID: 1469870234440386720, guid: 3ce1e7d307e1052458da93dd18a0e715, type: 3}
+  playerPrefab: {fileID: 3307009339937291658, guid: b8f8f93671973a945bc79d6620bc6bf3,
+    type: 3}
+  ghostPrefab: {fileID: 5078364213318904648, guid: 61a581000a42941169e1074ccf9d9555,
+    type: 3}
 --- !u!4 &891635164
 Transform:
   m_ObjectHideFlags: 0
@@ -366,6 +368,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingLayer
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4889327207244630110, guid: ee13c711ee018fe4c86cbf8027f75375,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.4811321
+      objectReference: {fileID: 0}
+    - target: {fileID: 4889327207244630110, guid: ee13c711ee018fe4c86cbf8027f75375,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.1619357
+      objectReference: {fileID: 0}
+    - target: {fileID: 4889327207244630110, guid: ee13c711ee018fe4c86cbf8027f75375,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1746939033626698531, guid: ee13c711ee018fe4c86cbf8027f75375,
         type: 3}
