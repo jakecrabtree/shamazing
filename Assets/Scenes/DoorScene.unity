@@ -287,18 +287,6 @@ MonoBehaviour:
   scenes:
   - DoorScene
   - SampleScene
---- !u!114 &1235782518 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9195499341846268365, guid: 035ebf731d080403fac0c5b63d64a45a,
-    type: 3}
-  m_PrefabInstance: {fileID: 9195499341038557323}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 863709ca13093074483633368d485206, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1485611717
 GameObject:
   m_ObjectHideFlags: 0
@@ -907,10 +895,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9195499340103561123, guid: 035ebf731d080403fac0c5b63d64a45a,
-        type: 3}
-      propertyPath: door
-      value: 
-      objectReference: {fileID: 1235782518}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 035ebf731d080403fac0c5b63d64a45a, type: 3}
