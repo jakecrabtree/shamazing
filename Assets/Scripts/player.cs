@@ -6,7 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     //Public Game Variables
-    public float walkSpeed = 10f;
+    public float walkSpeed = 5f;
 
     //Private Game Variables
     private Rigidbody2D pRigid;

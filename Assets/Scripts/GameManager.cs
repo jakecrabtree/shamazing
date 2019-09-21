@@ -6,7 +6,6 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     
     [SerializeField] private string[] scenes;
-    [SerializeField] private string deathScene;
     [SerializeField] private int lives = 3;
     private int _currentScene = 0;
     
@@ -19,11 +18,6 @@ public class GameManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-    }
-
-    public void Die()
-    {
-        SceneManager.LoadScene(deathScene);
     }
 
     public void NextLevel()

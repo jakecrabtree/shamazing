@@ -14,6 +14,7 @@ public class TimeHandler : MonoBehaviour
     private GameObject _player;
     private List<GameObject> _spawnedGhosts = new List<GameObject>();
     private GameManager _manager = GameManager.Instance;
+    private Coroutine _coroutine;
 
     private List<Path> _paths;
     private Path _currentPath;
@@ -30,7 +31,7 @@ public class TimeHandler : MonoBehaviour
         _currentPath = new Path();
         //Call level reset
         ResetLevel();
-        Invoke(nameof(Die), ghostTime);
+        //Invoke(nameof(Die), ghostTime);
         _currentLives = lives;
     }
     void ResetLevel()
@@ -53,6 +54,7 @@ public class TimeHandler : MonoBehaviour
 
         //add blank datapoint to currentGhost dataPoint list
         _currentPath.AddDataPoint(initialX, initialY, timeElapsed);
+        _coroutine = StartCoroutine(DieRoutine(ghostTime));
     }
     void FixedUpdate()
     {
@@ -100,6 +102,17 @@ public class TimeHandler : MonoBehaviour
             //TODO death animation
             SceneManager.LoadScene("DeathScene");
         }
-        ResetLevel();
+        else
+        {
+            StopCoroutine(_coroutine);
+            ResetLevel();
+        }
     }
+    
+    IEnumerator DieRoutine(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        Die();
+    }
+    
 }
