@@ -1,18 +1,37 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class totemSwitch : MonoBehaviour
+public class TotemSwitch : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+
+    [SerializeField] private Door door;
+
+    private void On()
     {
-        
+        door.Open();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Off()
     {
-        
+        door.Close();
+    }
+    
+    public void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            On();
+        }
+
+    }
+
+    public void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Off();
+        }
     }
 }

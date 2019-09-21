@@ -2,17 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class door : MonoBehaviour
+public class Door : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private int requiredSwitches;
+    
+    private int _currSwitches;
+    private Collider2D _collider;
+    
+    public void Start()
     {
-        
+        _collider = GetComponent<Collider2D>();
+    }
+    
+    public void Open()
+    {
+        if (++_currSwitches == requiredSwitches)
+        {
+            _collider.enabled = false;
+        }
+        //TODO animation
+        //TODO sound
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Close()
     {
-        
+        --_currSwitches;
+        _collider.enabled = true;
+        //TODO animation
+        //TODO sound
     }
+    
 }
