@@ -5,20 +5,19 @@ using UnityEngine;
 public class Log : MonoBehaviour
 {
     [SerializeField] private float _spinspeed = 1f;
-    private int _spinning;
+    private bool _spinning;
     private Rigidbody2D _logBody;
 
     public void Start()
     {
-        _spinning = 1;
+        _spinning = true;
         _logBody = GetComponent<Rigidbody2D>();
         _logBody.rotation = 45f;
     }
 
     public void Spin()
     {
-        _spinning = 1;
-        _spinspeed = 1f;
+        _spinning = true;
         //TODO animation
         //TODO sound
     }
@@ -26,14 +25,18 @@ public class Log : MonoBehaviour
     void FixedUpdate()
     {
         _logBody.rotation += _spinspeed;
-        if(_spinspeed > 0 && _spinning == 0)
+        if(_spinspeed > 0 && !_spinning)
         {
             _spinspeed -= .01f;
+        } 
+        else if(_spinspeed < 1 && _spinning)
+        {
+            _spinspeed += .01f;
         }
     }
     public void Halt()
     {
-        _spinning = 0;
+        _spinning = false;
         //TODO animation
         //TODO sound
     }
