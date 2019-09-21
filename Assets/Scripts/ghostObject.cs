@@ -20,7 +20,7 @@ public class ghostObject : MonoBehaviour
         //Reset timeElapsed and get Rigidbody (CRASHES UNITY)
         timeElapsed = 0f;
         Debug.Log("Before Rigidbody get");
-        gRigid = gameObject.GetComponent<Rigidbody2D>();
+        //gRigid = gameObject.GetComponent<Rigidbody2D>();
         Debug.Log("After Rigidbody get");
     }
     void beginMove()
