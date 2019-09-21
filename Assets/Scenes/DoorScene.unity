@@ -287,6 +287,8 @@ MonoBehaviour:
   scenes:
   - DoorScene
   - SampleScene
+  deathScene: DeathScene
+  lives: 3
 --- !u!1 &1485611717
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,6 +599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ghostTime: 5
+  lives: 3
   spawnPoint: {fileID: 1537612764}
   playerPrefab: {fileID: 3307009339937291658, guid: b8f8f93671973a945bc79d6620bc6bf3,
     type: 3}
