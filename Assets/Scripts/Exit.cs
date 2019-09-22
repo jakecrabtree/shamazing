@@ -5,7 +5,7 @@ public class Exit : MonoBehaviour
 {
     [SerializeField] private int requiredKeys;
     private int _currKeys;
-    [SerializeField]private bool _exitable;
+    private bool _exitable;
 
     public void Start()
     {
