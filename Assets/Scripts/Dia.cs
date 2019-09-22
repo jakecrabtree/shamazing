@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Dia
 {
-    [TextArea(3, )]
+    [TextArea(3, 3)]
     public string[] sentences;
 
 }

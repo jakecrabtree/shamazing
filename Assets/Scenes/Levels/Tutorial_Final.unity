@@ -4702,6 +4702,8 @@ MonoBehaviour:
   - Tutorial_FINAL
   - Level 1_FINAL
   - Level 2_FINAL 1
+  - Level 3_FINAL
+  - Level 4_FINAL
   lives: 3
 --- !u!4 &307779642
 Transform:
