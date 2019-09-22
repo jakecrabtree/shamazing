@@ -1,11 +1,22 @@
 using System;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Exit : MonoBehaviour
 {
     [SerializeField] private int requiredKeys;
     private int _currKeys;
     private bool _exitable;
+    public AudioSource audioSource;
+
+    private void Awake()
+    {
+        if(audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
+    }
 
     public void Start()
     {
@@ -30,9 +41,40 @@ public class Exit : MonoBehaviour
     {
         if (other.CompareTag("Player") &&  _exitable)
         {
+            Debug.Log("Level completed.");
             //TODO Play animation first
-            GameManager.Instance.NextLevel();
+            TimeHandler.instance._player.GetComponent<Player>().active = false;
+            TimeHandler.instance._player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            TimeHandler.instance.StopAllCoroutines();
+            TimeHandler.instance.active = false;
+
+            StartCoroutine(VictoryAnimation());
+
+            //GameManager.Instance.NextLevel();
         }
+    }
+
+    IEnumerator VictoryAnimation()
+    {
+        foreach(GameObject ghost in TimeHandler.instance._spawnedGhosts)
+        {
+            Debug.Log("Ghost Found");
+            Ghost ghostObject = ghost.GetComponent<Ghost>();
+            if(ghostObject != null)
+            {
+                ghostObject.MoveTowardPlayer();
+            }
+        }
+        AudioMixer audioMixer = GameManager.Instance.audioMixer;
+        audioMixer.FindSnapshot("Paused").TransitionTo(0.1f);
+        audioSource.Play();
+        yield return new WaitForSeconds(audioSource.clip.length * 0.6f);
+        TimeHandler.instance._player.GetComponent<Player>().active = true;
+        TimeHandler.instance.active = true;
+        TimeHandler.instance = null;
+
+        audioMixer.FindSnapshot("Default").TransitionTo(0.1f);
+        GameManager.Instance.NextLevel();
     }
     
 }
