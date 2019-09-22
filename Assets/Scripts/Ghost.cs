@@ -79,7 +79,7 @@ public class Ghost : MonoBehaviour
 
         while(sqrRemainingDistance > float.Epsilon)
         {
-            transform.position = Vector2.Lerp(transform.position, destination, (3/time) * Time.deltaTime);
+            transform.position = Vector2.Lerp(transform.position, destination, (4/time) * Time.deltaTime);
 
             sqrRemainingDistance = (transform.position - destination).sqrMagnitude;
 

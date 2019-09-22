@@ -69,7 +69,7 @@ public class Exit : MonoBehaviour
         AudioMixer audioMixer = GameManager.Instance.audioMixer;
         audioMixer.FindSnapshot("Paused").TransitionTo(0.1f);
         audioSource.Play();
-        yield return new WaitForSeconds(audioSource.clip.length * 0.85f);
+        yield return new WaitForSeconds(audioSource.clip.length * 0.8f);
         TimeHandler.instance._player.GetComponent<Player>().active = true;
         TimeHandler.instance.active = true;
         TimeHandler.instance = null;
