@@ -11,6 +11,7 @@ public class Ghost : MonoBehaviour
     public Animator animatorG;
     private Collider2D collider;
     [HideInInspector] public float returnTime = 5f;
+    public GameObject ring;
 
 
     private Path _path;
@@ -52,16 +53,16 @@ public class Ghost : MonoBehaviour
         Debug.Log("horizontal " + gRigid.velocity.x);
     }
 
-    public void MoveTowardPlayer()
+    public void MoveTowardPlayer(float x, float y)
     {
         StopAllCoroutines();
         gRigid.velocity = Vector2.zero;
         collider = GetComponent<Collider2D>();
         collider.enabled = false;
-        float playerX = TimeHandler.instance._player.transform.position.x;
-        float playerY = TimeHandler.instance._player.transform.position.y;
+       // float playerX = TimeHandler.instance._player.transform.position.x;
+        //float playerY = TimeHandler.instance._player.transform.position.y;
 
-        StartCoroutine(MoveTo(playerX, playerY, returnTime));
+        StartCoroutine(MoveTo(x, y, returnTime));
     }
 
     public void MoveTowardPlayer(float moveTime)

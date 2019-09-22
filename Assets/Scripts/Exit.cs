@@ -64,9 +64,11 @@ public class Exit : MonoBehaviour
             Ghost ghostObject = ghost.GetComponent<Ghost>();
             if (ghostObject != null)
             {
-                ghostObject.MoveTowardPlayer();
+                ghostObject.MoveTowardPlayer(pew.transform.position.x, pew.transform.position.y);
             }
         }
+
+        TimeHandler.instance._player.GetComponent<Player>().MoveTowardPlayer(pew.transform.position.x, pew.transform.position.y);
         AudioMixer audioMixer = GameManager.Instance.audioMixer;
         audioMixer.FindSnapshot("Paused").TransitionTo(0.1f);
         audioSource.Play();
@@ -83,7 +85,17 @@ public class Exit : MonoBehaviour
     IEnumerator Pew(GameObject pew)
     {
         yield return new WaitForSeconds(audioSource.clip.length * 0.7f);
-        GameObject ring = pew.GetComponent<Player>().ring;
+        GameObject ring;
+        Player p = pew.GetComponent<Player>();
+        if (p != null)
+        {
+            ring = p.ring;
+        }
+        else
+        {
+            Ghost g = pew.GetComponent<Ghost>();
+            ring = g.ring;
+        }
         ring.SetActive(true);
         Vector2 scale = ring.transform.localScale;
         for (float i = 0; i <= 1f; i += Time.fixedDeltaTime)
