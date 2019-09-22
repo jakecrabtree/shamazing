@@ -99,6 +99,10 @@ public class TimeHandler : MonoBehaviour
                 //reset elapsed time since last call
                 timeElapsed = 0f;
             }
+            if(GameManager.Instance.tutorialMode == false && GameManager.Instance._currentScene == 0)
+            {
+                GameManager.Instance.NextLevel();
+            }
         }
         
     }
@@ -111,7 +115,6 @@ public class TimeHandler : MonoBehaviour
             Die();
         }
     }
-
     void Die()
     {
         _currentPath.AddDataPoint(0, 0, timeElapsed);
@@ -122,7 +125,6 @@ public class TimeHandler : MonoBehaviour
         {
             Destroy(ghost);
         }
-
         _spawnedGhosts.Clear();
         _currentLives--;
         livesText.text = "x " + (_currentLives - 1);
