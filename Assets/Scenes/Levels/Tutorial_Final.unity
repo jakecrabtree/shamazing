@@ -6172,7 +6172,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
       propertyPath: convo2.Array.size
-      value: 18
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
       propertyPath: convo2Speakers.Array.size
@@ -6298,20 +6298,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
       propertyPath: convo2.Array.data[14]
-      value: Every 5 seconds, a part of your mortal soul will die.
+      value: Every 10 seconds, a part of your mortal soul will die.
       objectReference: {fileID: 0}
     - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
       propertyPath: convo2.Array.data[15]
+      value: Or you can press E to eject your spirit in advance of the timer.
+      objectReference: {fileID: 0}
+    - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
+      propertyPath: convo2.Array.data[16]
       value: You will be revived at the entrance to the room, and your spirit double
         will repeat what it did before it died.
       objectReference: {fileID: 0}
     - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
-      propertyPath: convo2.Array.data[16]
+      propertyPath: convo2.Array.data[17]
       value: Be warned, even the best of mortals can only split their souls twice
         before they're stuck here forever.
       objectReference: {fileID: 0}
     - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
-      propertyPath: convo2.Array.data[17]
+      propertyPath: convo2.Array.data[18]
       value: So make sure to make the most of your spirit doubles!
       objectReference: {fileID: 0}
     - target: {fileID: 5566031051400287074, guid: a93a5efa456dbac4182de26ff99e1c34,
