@@ -39,13 +39,13 @@ public class Player : MonoBehaviour
     }
 
     void FixedUpdate() {
-        if (active)
+
+        if(active)
         {
             //if we're not controlling a ghost, get keyboard input and translate the player
-            pRigid.velocity = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-            pRigid.velocity = (pRigid.velocity.magnitude == 0.0f) ? Vector2.zero : pRigid.velocity / pRigid.velocity.magnitude;
-            pRigid.velocity *= walkSpeed;
+            pRigid.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * walkSpeed, Input.GetAxisRaw("Vertical") * walkSpeed);
             //after player control swaps to ghost, slow player to a nice stop rather than just have it freeze
         }
+
     }
 }

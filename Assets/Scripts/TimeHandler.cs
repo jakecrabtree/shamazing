@@ -67,31 +67,30 @@ public class TimeHandler : MonoBehaviour
         timeElapsed = 0f;
 
         //add blank datapoint to currentGhost dataPoint list
-        _currentPath.AddDataPoint(initialX, initialY, transform.position.x, transform.position.y, timeElapsed);
+        _currentPath.AddDataPoint(initialX, initialY, timeElapsed);
         _coroutine = StartCoroutine(DieRoutine(ghostTime));
     }
     void FixedUpdate()
     {
-        if (active)
+        if(active)
         {
             //Current InputRaw
             cur_x = Input.GetAxisRaw("Horizontal");
             cur_y = Input.GetAxisRaw("Vertical");
             // Increase TimeElapsed
             timeElapsed += Time.deltaTime;
-        }
 
-        TimeDataPoint prev = _currentPath.Back();
+            TimeDataPoint prev = _currentPath.Back();
 
-        // If we've recieved a new input:
-        if((int)Math.Round(cur_y, 0) != (int)Math.Round(prev.y_dir, 0) ||
-               (int)Math.Round(cur_x, 0) != (int)Math.Round(prev.x_dir, 0))
-        {
-            _currentPath.Back().time = timeElapsed;
-            //add new data point
-            _currentPath.AddDataPoint(cur_x, cur_y,  transform.position.x, transform.position.y, 0);
-            //reset elapsed time since last call
-            timeElapsed = 0f;
+            // If we've recieved a new input:
+            if ((int)Math.Round(cur_y, 0) != (int)Math.Round(prev.y_dir, 0) ||
+                   (int)Math.Round(cur_x, 0) != (int)Math.Round(prev.x_dir, 0))
+            {
+                //add new data point
+                _currentPath.AddDataPoint(cur_x, cur_y, timeElapsed);
+                //reset elapsed time since last call
+                timeElapsed = 0f;
+            }
         }
         
     }
@@ -107,7 +106,7 @@ public class TimeHandler : MonoBehaviour
 
     void Die()
     {
-        _currentPath.AddDataPoint(0, 0, transform.position.x, transform.position.y, timeElapsed);
+        _currentPath.AddDataPoint(0, 0, timeElapsed);
         _paths.Add(_currentPath);
         _currentPath = new Path();
         Destroy(_player);

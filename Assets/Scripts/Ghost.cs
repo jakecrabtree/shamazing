@@ -5,14 +5,14 @@ using UnityEngine;
 
 public class Ghost : MonoBehaviour
 {
-    //Object Variables
-    private float walkSpeed = 5f;
-    private Rigidbody2D gRigid;
-    private Vector2 velocity;
+
+    public float walkSpeed = 5f;
+    public Rigidbody2D gRigid;
     public Animator animatorG;
     private Collider2D collider;
     [HideInInspector] public float returnTime = 5f;
-    
+
+
     private Path _path;
 
     //set move list
@@ -22,29 +22,21 @@ public class Ghost : MonoBehaviour
         gRigid = GetComponent<Rigidbody2D>();
         StartCoroutine(MoveAlongPath());
     }
-    
-    public void FixedUpdate()
-    {
-        if (gRigid == null) return;
-       /* Vector2 endDest = goalPoint - (Vector2) transform.position;
-        endDest /= endDest.magnitude;
-        Debug.Log("v: " + velocity + "endDest: " + endDest);
-        Vector2 dir = (velocity + endDest) / 2.0f;*/
-        gRigid.velocity = walkSpeed * velocity;
 
-    }
-    
+   
     IEnumerator MoveAlongPath()
     {
         TimeDataPoint point;
-        for (int i = 0; i < _path.Size(); ++i)
+        for (int i = 0; i < _path.Size() - 1; ++i)
         {
             point = _path.Get(i);
-            velocity = new Vector2(point.x_dir,  point.y_dir);
-            velocity = (velocity.magnitude == 0.0f) ? Vector2.zero : velocity/velocity.magnitude;
-            gRigid.velocity = walkSpeed * velocity;
-            yield return new WaitForSeconds(point.time);
+            TimeDataPoint nextPoint = _path.Get(i + 1);
+            gRigid.velocity = new Vector2(walkSpeed* point.x_dir, walkSpeed* point.y_dir);
+        
+            yield return new WaitForSeconds(nextPoint.time);
         }
+        point = _path.Get(_path.Size() - 1);
+        gRigid.velocity = walkSpeed * new Vector2(point.x_dir, point.y_dir);
     }
 
 
@@ -94,6 +86,18 @@ public class Ghost : MonoBehaviour
             yield return null;
         }
 
+        /*
+        float timeElapsed = 0;
+
+        while(timeElapsed < time)
+        {
+            transform.position = Vector2.Lerp(transform.position, destination, Time.deltaTime * time);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+        */
+        yield break;
+        
     }
 
 }
