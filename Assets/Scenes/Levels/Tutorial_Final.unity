@@ -4648,7 +4648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdac7ac44a594567b491781b73132f1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioMixer: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: 796227b86553f054ab5f8feb4ed54388, type: 2}
   scenes:
   - Tutorial_FINAL
   - Level 1_FINAL
@@ -6711,6 +6711,11 @@ PrefabInstance:
     - target: {fileID: 5472798440884141013, guid: a1d075b93419e4728b76e78fa4fd2b4e,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5472798442375652302, guid: a1d075b93419e4728b76e78fa4fd2b4e,
+        type: 3}
+      propertyPath: requiredKeys
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
