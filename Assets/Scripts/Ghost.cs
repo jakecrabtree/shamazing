@@ -5,11 +5,25 @@ using UnityEngine;
 
 public class Ghost : MonoBehaviour
 {
+<<<<<<< HEAD
+    //Object Variables
+//<<<<<<< HEAD
+    public float walkSpeed = 5f;
+    public Rigidbody2D gRigid;
+    public Animator animatorG;
+//=======
+   // private float walkSpeed = 5f;
+    [HideInInspector] public float returnTime = 10f;
+   // private Rigidbody2D gRigid;
+    private Collider2D collider;
+//>>>>>>> 54a4ef75fc28fff17e0393c6101bc85e0f60c008
+=======
     public Animator animatorG;
     private float walkSpeed = 5f;
     [HideInInspector] public float returnTime = 5f;
     private Rigidbody2D gRigid;
     private Collider2D collider;
+>>>>>>> 01f9d7004a94ad663556ce9f012610e82611d6d9
 
     private Path _path;
 
@@ -37,6 +51,10 @@ public class Ghost : MonoBehaviour
         gRigid.velocity = walkSpeed * new Vector2(point.x_dir, point.y_dir);
     }
 
+<<<<<<< HEAD
+//<<<<<<< HEAD
+=======
+>>>>>>> 01f9d7004a94ad663556ce9f012610e82611d6d9
     private void Update()
     {
         animatorG.SetFloat("horizontal", gRigid.velocity.x);
@@ -45,7 +63,11 @@ public class Ghost : MonoBehaviour
         Debug.Log("horizontal " + gRigid.velocity.x);
     }
 
+<<<<<<< HEAD
+//=======
+=======
 
+>>>>>>> 01f9d7004a94ad663556ce9f012610e82611d6d9
     public void MoveTowardPlayer()
     {
         StopAllCoroutines();
@@ -98,4 +120,10 @@ public class Ghost : MonoBehaviour
         
     }
 
+<<<<<<< HEAD
+
+    
+//>>>>>>> 54a4ef75fc28fff17e0393c6101bc85e0f60c008
+=======
+>>>>>>> 01f9d7004a94ad663556ce9f012610e82611d6d9
 }
