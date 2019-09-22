@@ -65,7 +65,7 @@ public class Exit : MonoBehaviour
             }
         }
         audioSource.Play();
-        yield return new WaitForSeconds(audioSource.clip.length);
+        yield return new WaitForSeconds(audioSource.clip.length * 0.6f);
         TimeHandler.instance._player.GetComponent<Player>().active = true;
         TimeHandler.instance.active = true;
         TimeHandler.instance = null;

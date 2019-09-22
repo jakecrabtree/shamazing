@@ -7,7 +7,7 @@ public class Ghost : MonoBehaviour
 {
     //Object Variables
     private float walkSpeed = 5f;
-    [HideInInspector] public float returnTime = 5f;
+    [HideInInspector] public float returnTime = 10f;
     private Rigidbody2D gRigid;
     private Collider2D collider;
 
