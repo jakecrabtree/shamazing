@@ -49,6 +49,8 @@ public class Exit : MonoBehaviour
             TimeHandler.instance.StopAllCoroutines();
             TimeHandler.instance.active = false;
 
+            Time.timeScale = 2f;
+
             StartCoroutine(VictoryAnimation());
 
             //GameManager.Instance.NextLevel();
@@ -75,6 +77,7 @@ public class Exit : MonoBehaviour
         TimeHandler.instance = null;
 
         audioMixer.FindSnapshot("Default").TransitionTo(0.1f);
+        Time.timeScale = 1f;
         GameManager.Instance.NextLevel();
     }
     
