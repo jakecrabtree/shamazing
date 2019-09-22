@@ -11,7 +11,9 @@ public class TitleManager : MonoBehaviour
     public string[] introFileNames;
     public Image introImage;
     private int ind = 0;
-
+    public string nextScene;
+    public string filePrefix;
+    
     private void Start()
     {
         screenFader.canvasRenderer.SetAlpha(0f);
@@ -22,7 +24,6 @@ public class TitleManager : MonoBehaviour
     {
         if(Input.anyKeyDown)
         {
-
             StartCoroutine(FadeOut(1f, ind++));
         }
     }
@@ -34,13 +35,13 @@ public class TitleManager : MonoBehaviour
         if (index < introFileNames.Length)
         {
             screenFader.CrossFadeAlpha(0f, time, false);
-            Sprite sprite = Resources.Load<Sprite>("Intro/" + introFileNames[index]);
+            Sprite sprite = Resources.Load<Sprite>(filePrefix + introFileNames[index]);
             introImage.sprite = sprite;
             yield return new WaitForSeconds(time);
         }
         else
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(nextScene);
         }
     }
 }
