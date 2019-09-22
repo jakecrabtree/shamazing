@@ -123,7 +123,7 @@ public class TimeHandler : MonoBehaviour
         if (_currentLives == 0)
         {
             //TODO death animation
-            SceneManager.LoadScene("DeathScene");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         else
         {
