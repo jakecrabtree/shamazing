@@ -26,6 +26,8 @@ public class TotemSwitch : MonoBehaviour
 
     [SerializeField] private DialogueManager dialogueManager;
 
+    private int count = 0;
+
     private void Awake()
     {
 
@@ -38,44 +40,50 @@ public class TotemSwitch : MonoBehaviour
     private void On()
     {
         Debug.Log("on");
-        switch(dropdown)
-        {
-            case objectTypes.Door:
-                door.Open();
-                break;
-            case objectTypes.Log:
-                log.Halt();
-                break;
-        }
+            switch (dropdown)
+            {
+                case objectTypes.Door:
+                    door.Open();
+                    break;
+                case objectTypes.Log:
+                    log.Halt();
+                    break;
+            }
+        
     }
 
     private void Off()
     {
+
+            switch (dropdown)
+            {
+                case objectTypes.Door:
+                    door.Close();
+                    break;
+                case objectTypes.Log:
+                    log.Spin();
+                    break;
+            }
         
-        switch (dropdown)
-        {
-            case objectTypes.Door:
-                door.Close();
-                break;
-            case objectTypes.Log:
-                log.Spin();
-                break;
-        }
        
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            partSys.Play();
-            this.GetComponent<SpriteRenderer>().sprite = active;
-            audioSource.clip = activationSound;
-            audioSource.Play();
-            On();
-            if (GameManager.Instance.tutorialMode)
+            if(count == 0)
             {
-                dialogueManager.Convo2();
+                partSys.Play();
+                this.GetComponent<SpriteRenderer>().sprite = active;
+                audioSource.clip = activationSound;
+                audioSource.Play();
+                On();
+                if (GameManager.Instance.tutorialMode)
+                {
+                    dialogueManager.Convo2();
+                }
             }
+            count++;
         }
 
     }
@@ -84,11 +92,16 @@ public class TotemSwitch : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            partSys.Stop();
-            GetComponent<SpriteRenderer>().sprite = inactive;
-            audioSource.clip = deactivationSound;
-            audioSource.Play();
-            Off();
+            count--;
+            if(count == 0)
+            {
+                partSys.Stop();
+                GetComponent<SpriteRenderer>().sprite = inactive;
+                audioSource.clip = deactivationSound;
+                audioSource.Play();
+                Off();
+            }
+            
         }
     }
 }
