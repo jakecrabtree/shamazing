@@ -4682,10 +4682,12 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: 796227b86553f054ab5f8feb4ed54388, type: 2}
   scenes:
   - Tutorial_FINAL
-  - MAYBE
+  - Level 1_FINAL
   - Level 2_FINAL 1
   - Level 3_FINAL
   - Level 4_FINAL
+  - Level 5_FINAL
+  - Level 6_FINAL
   lives: 3
   tutorialMode: 1
 --- !u!4 &307779642
