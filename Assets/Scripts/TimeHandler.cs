@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class TimeHandler : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class TimeHandler : MonoBehaviour
     private GameManager _manager = GameManager.Instance;
     private Coroutine _coroutine;
     [HideInInspector] public bool active = true;
+
+    public TextMeshProUGUI livesText;
 
     private List<Path> _paths;
     private Path _currentPath;
@@ -115,7 +118,9 @@ public class TimeHandler : MonoBehaviour
             Destroy(ghost);
         }
         _spawnedGhosts.Clear();
-        if (--_currentLives == 0)
+        _currentLives--;
+        livesText.text = "x " + _currentLives;
+        if (_currentLives == 0)
         {
             //TODO death animation
             SceneManager.LoadScene("DeathScene");
