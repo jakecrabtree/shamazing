@@ -42,7 +42,7 @@ public class Ghost : MonoBehaviour
 
     private void Update()
     {
-        animatorG.SetFloat("horizontal", gRigid.velocity.x);
+        animatorG.SetFloat("hortizontal", gRigid.velocity.x);
         animatorG.SetFloat("vertical", gRigid.velocity.y);
         animatorG.SetFloat("Speed", gRigid.velocity.sqrMagnitude);
         Debug.Log("horizontal " + gRigid.velocity.x);
