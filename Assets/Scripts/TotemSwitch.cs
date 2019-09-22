@@ -20,8 +20,14 @@ public class TotemSwitch : MonoBehaviour
     [SerializeField] private AudioClip activationSound;
     [SerializeField] private AudioClip deactivationSound;
 
+    [SerializeField] private Sprite inactive;
+    [SerializeField] private Sprite active;
+    [SerializeField] private ParticleSystem partSys;
+
+
     private void Awake()
     {
+
         if(audioSource == null)
         {
             audioSource = GetComponent<AudioSource>();
@@ -30,6 +36,7 @@ public class TotemSwitch : MonoBehaviour
 
     private void On()
     {
+        this.GetComponent<SpriteRenderer>().sprite = active;
         switch(dropdown)
         {
             case objectTypes.Door:
@@ -45,6 +52,7 @@ public class TotemSwitch : MonoBehaviour
 
     private void Off()
     {
+        this.GetComponent<SpriteRenderer>().sprite = inactive;
         switch (dropdown)
         {
             case objectTypes.Door:
@@ -61,6 +69,7 @@ public class TotemSwitch : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            partSys.Play();
             On();
         }
 
@@ -70,6 +79,7 @@ public class TotemSwitch : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            partSys.Stop();
             Off();
         }
     }
