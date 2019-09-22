@@ -1362,7 +1362,7 @@ ParticleSystem:
   UVModule:
     serializedVersion: 2
     enabled: 0
-    mode: 0
+    mode: 1
     timeMode: 0
     fps: 30
     frameOverTime:
@@ -1480,7 +1480,7 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 0}
+    - sprite: {fileID: 21300000, guid: db733a7e3256ac34193c9dc616494d72, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -4708,7 +4708,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -9583,6 +9583,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.1
       objectReference: {fileID: 0}
+    - target: {fileID: 4934590011327818700, guid: 95cc095ee6ae649fca1d5f35e9f6d3ca,
+        type: 3}
+      propertyPath: inactive
+      value: 
+      objectReference: {fileID: 21300000, guid: 01c2475f24d6490499e711622c8c1e4b,
+        type: 3}
+    - target: {fileID: 4934590011327818700, guid: 95cc095ee6ae649fca1d5f35e9f6d3ca,
+        type: 3}
+      propertyPath: active
+      value: 
+      objectReference: {fileID: 21300000, guid: ec3e725ffa3ddcb49be918aed738de2e,
+        type: 3}
     - target: {fileID: 4934590013070462373, guid: 95cc095ee6ae649fca1d5f35e9f6d3ca,
         type: 3}
       propertyPath: m_IsActive
@@ -9613,18 +9625,6 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4934590011327818700, guid: 95cc095ee6ae649fca1d5f35e9f6d3ca,
-        type: 3}
-      propertyPath: inactive
-      value: 
-      objectReference: {fileID: 21300000, guid: 01c2475f24d6490499e711622c8c1e4b,
-        type: 3}
-    - target: {fileID: 4934590011327818700, guid: 95cc095ee6ae649fca1d5f35e9f6d3ca,
-        type: 3}
-      propertyPath: active
-      value: 
-      objectReference: {fileID: 21300000, guid: ec3e725ffa3ddcb49be918aed738de2e,
-        type: 3}
     - target: {fileID: 4934590011327818697, guid: 95cc095ee6ae649fca1d5f35e9f6d3ca,
         type: 3}
       propertyPath: m_Enabled
