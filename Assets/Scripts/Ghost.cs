@@ -36,11 +36,11 @@ public class Ghost : MonoBehaviour
             yield return new WaitForSeconds(nextPoint.time);
         }
         point = _path.Get(_path.Size() - 1);
-        gRigid.velocity = new Vector2(point.x_dir,  point.y_dir);
-        gRigid.velocity = (gRigid.velocity.magnitude == 0)
+        gRigid.velocity = walkSpeed * new Vector2(point.x_dir,  point.y_dir);
+        /*gRigid.velocity = (gRigid.velocity.magnitude == 0)
             ? Vector2.zero
             : gRigid.velocity / gRigid.velocity.magnitude;
-        gRigid.velocity *= walkSpeed;    
+        gRigid.velocity *= walkSpeed;  */  
     }
 
 
