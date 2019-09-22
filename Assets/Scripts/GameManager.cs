@@ -1,9 +1,12 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+    public AudioMixer audioMixer;
+
     
     [SerializeField] private string[] scenes;
     [SerializeField] private int lives = 3;
