@@ -114,7 +114,7 @@ public class TimeHandler : MonoBehaviour
 
     void Die()
     {
-        _currentPath.AddDataPoint(0, 0, timeElapsed);
+        //_currentPath.AddDataPoint(0, 0, timeElapsed);
         _paths.Add(_currentPath);
         _currentPath = new Path();
         Destroy(_player);
