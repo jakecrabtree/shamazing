@@ -120,49 +120,19 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &66683453
+--- !u!1 &25733796 stripped
 GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 7304624628188498124, guid: a93a5efa456dbac4182de26ff99e1c34,
+    type: 3}
+  m_PrefabInstance: {fileID: 1064054651}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 66683454}
-  - component: {fileID: 66683455}
-  m_Layer: 5
-  m_Name: dialogueManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &66683454
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 66683453}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 402978252}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &66683455
+--- !u!114 &66683455 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34,
+    type: 3}
+  m_PrefabInstance: {fileID: 1064054651}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 66683453}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e307a135ee09b24abba3142500ea304, type: 3}
@@ -4712,11 +4682,12 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: 796227b86553f054ab5f8feb4ed54388, type: 2}
   scenes:
   - Tutorial_FINAL
-  - Level 1_FINAL
+  - MAYBE
   - Level 2_FINAL 1
   - Level 3_FINAL
   - Level 4_FINAL
   lives: 3
+  tutorialMode: 1
 --- !u!4 &307779642
 Transform:
   m_ObjectHideFlags: 0
@@ -5061,12 +5032,6 @@ Sprite:
   m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
---- !u!224 &402978252 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 5566031051400287074, guid: a93a5efa456dbac4182de26ff99e1c34,
-    type: 3}
-  m_PrefabInstance: {fileID: 1064054651}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &417671049
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6290,81 +6255,30 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5566031050154338181, guid: a93a5efa456dbac4182de26ff99e1c34,
+    - target: {fileID: 5566031050154338182, guid: a93a5efa456dbac4182de26ff99e1c34,
         type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 2.3999634
-      objectReference: {fileID: 0}
-    - target: {fileID: 5566031051108227337, guid: a93a5efa456dbac4182de26ff99e1c34,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 3008f8be1e0bdbe48b9c82acae26e281,
-        type: 3}
-    - target: {fileID: 5566031051213734517, guid: a93a5efa456dbac4182de26ff99e1c34,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5566031051213734517, guid: a93a5efa456dbac4182de26ff99e1c34,
-        type: 3}
-      propertyPath: m_Type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5566031051213734517, guid: a93a5efa456dbac4182de26ff99e1c34,
-        type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5566031051213734517, guid: a93a5efa456dbac4182de26ff99e1c34,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0.46666667
-      objectReference: {fileID: 0}
-    - target: {fileID: 5566031051213734517, guid: a93a5efa456dbac4182de26ff99e1c34,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5566031051213734517, guid: a93a5efa456dbac4182de26ff99e1c34,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5566031051213734517, guid: a93a5efa456dbac4182de26ff99e1c34,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0
+      propertyPath: m_fontSize
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5566031050154338182, guid: a93a5efa456dbac4182de26ff99e1c34,
         type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5566031050154338182, guid: a93a5efa456dbac4182de26ff99e1c34,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5566031050154338182, guid: a93a5efa456dbac4182de26ff99e1c34,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5566031050154338182, guid: a93a5efa456dbac4182de26ff99e1c34,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5566031050154338182, guid: a93a5efa456dbac4182de26ff99e1c34,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5566031050154338182, guid: a93a5efa456dbac4182de26ff99e1c34,
-        type: 3}
-      propertyPath: m_textInfo.materialCount
+      propertyPath: m_enableAutoSizing
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5566031050154338182, guid: a93a5efa456dbac4182de26ff99e1c34,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5566031050154338182, guid: a93a5efa456dbac4182de26ff99e1c34,
+        type: 3}
+      propertyPath: m_fontSizeMax
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5566031050154338182, guid: a93a5efa456dbac4182de26ff99e1c34,
+        type: 3}
+      propertyPath: m_fontSizeMin
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 5566031051838366603, guid: a93a5efa456dbac4182de26ff99e1c34,
         type: 3}
@@ -6375,6 +6289,170 @@ PrefabInstance:
         type: 3}
       propertyPath: m_sharedMaterial
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5566031051838366603, guid: a93a5efa456dbac4182de26ff99e1c34,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5566031050417348694, guid: a93a5efa456dbac4182de26ff99e1c34,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5566031051108227335, guid: a93a5efa456dbac4182de26ff99e1c34,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
+      propertyPath: convo2.Array.size
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
+      propertyPath: convo2Speakers.Array.size
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
+      propertyPath: camPt1
+      value: 
+      objectReference: {fileID: 1606105288}
+    - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
+      propertyPath: dialogueBox
+      value: 
+      objectReference: {fileID: 25733796}
+    - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
+      propertyPath: convo2.Array.data[0]
+      value: Thanks, my eyes are holes in wood and don't see too well
+      objectReference: {fileID: 0}
+    - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
+      propertyPath: convo2.Array.data[1]
+      value: But anyways, I know how to get your dog back
+      objectReference: {fileID: 0}
+    - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
+      propertyPath: convo2.Array.data[2]
+      value: The unusually evil spirit, Maajimi, has been scattering the beads on
+        your dog's collar throughout the Soul Tree
+      objectReference: {fileID: 0}
+    - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
+      propertyPath: convo2.Array.data[3]
+      value: But, why?
+      objectReference: {fileID: 0}
+    - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
+      propertyPath: convo2.Array.data[4]
+      value: Like I said, unusually evil. Plus the beads looked pretty nice
+      objectReference: {fileID: 0}
+    - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
+      propertyPath: convo2.Array.data[5]
+      value: With his collar in pieces, there's nowhere for your dog's spirit to reside
+      objectReference: {fileID: 0}
+    - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
+      propertyPath: convo2.Array.data[6]
+      value: To get him back, you gotta find all the pieces and fix the collar
+      objectReference: {fileID: 0}
+    - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
+      propertyPath: convo2.Array.data[7]
+      value: Are you up for the challenge?
+      objectReference: {fileID: 0}
+    - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
+      propertyPath: convo2.Array.data[8]
+      value: '...'
+      objectReference: {fileID: 0}
+    - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
+      propertyPath: convo2.Array.data[9]
+      value: Great!
+      objectReference: {fileID: 0}
+    - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
+      propertyPath: convo2.Array.data[10]
+      value: 'Getting those beads will be easy-peasy after I teach ya how to use the
+        totems. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
+      propertyPath: convo2.Array.data[11]
+      value: "It\u2019ll be simple, even for someone as mortal as you, buddy! "
+      objectReference: {fileID: 0}
+    - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
+      propertyPath: convo2.Array.data[12]
+      value: Use the WASD buttons to move around
+      objectReference: {fileID: 0}
+    - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
+      propertyPath: convo2Speakers.Array.data[0]
+      value: BlueTotem
+      objectReference: {fileID: 0}
+    - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
+      propertyPath: convo2Speakers.Array.data[1]
+      value: BlueTotem
+      objectReference: {fileID: 0}
+    - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
+      propertyPath: convo2Speakers.Array.data[2]
+      value: BlueTotem
+      objectReference: {fileID: 0}
+    - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
+      propertyPath: convo2Speakers.Array.data[3]
+      value: Shaman
+      objectReference: {fileID: 0}
+    - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
+      propertyPath: convo2Speakers.Array.data[4]
+      value: BlueTotem
+      objectReference: {fileID: 0}
+    - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
+      propertyPath: convo2Speakers.Array.data[5]
+      value: BlueTotem
+      objectReference: {fileID: 0}
+    - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
+      propertyPath: convo2Speakers.Array.data[6]
+      value: BlueTotem
+      objectReference: {fileID: 0}
+    - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
+      propertyPath: convo2Speakers.Array.data[7]
+      value: BlueTotem
+      objectReference: {fileID: 0}
+    - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
+      propertyPath: convo2Speakers.Array.data[8]
+      value: Shaman
+      objectReference: {fileID: 0}
+    - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
+      propertyPath: convo2Speakers.Array.data[9]
+      value: BlueTotem
+      objectReference: {fileID: 0}
+    - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
+      propertyPath: convo2Speakers.Array.data[10]
+      value: BlueTotem
+      objectReference: {fileID: 0}
+    - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
+      propertyPath: convo2Speakers.Array.data[11]
+      value: BlueTotem
+      objectReference: {fileID: 0}
+    - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
+      propertyPath: convo2Speakers.Array.data[12]
+      value: BlueTotem
+      objectReference: {fileID: 0}
+    - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
+      propertyPath: convo2.Array.data[13]
+      value: "There are some actions you cannot do yourself\u2026 At first!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
+      propertyPath: convo2.Array.data[14]
+      value: Every 5 seconds, a part of your mortal soul will die.
+      objectReference: {fileID: 0}
+    - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
+      propertyPath: convo2.Array.data[15]
+      value: You will be revived at the entrance to the room, and your spirit double
+        will repeat what it did before it died.
+      objectReference: {fileID: 0}
+    - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
+      propertyPath: convo2.Array.data[16]
+      value: Be warned, even the best of mortals can only split their souls twice
+        before they're stuck here forever.
+      objectReference: {fileID: 0}
+    - target: {fileID: 66683455, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
+      propertyPath: convo2.Array.data[17]
+      value: So make sure to make the most of your spirit doubles!
+      objectReference: {fileID: 0}
+    - target: {fileID: 7304624628188498124, guid: a93a5efa456dbac4182de26ff99e1c34,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a93a5efa456dbac4182de26ff99e1c34, type: 3}
@@ -6742,6 +6820,36 @@ Sprite:
   m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
+--- !u!1 &1606105287
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1606105288}
+  m_Layer: 0
+  m_Name: CamPt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1606105288
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1606105287}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.92, y: -0.15, z: -9.999996}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1639838350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7380,6 +7488,11 @@ PrefabInstance:
       propertyPath: partSys
       value: 
       objectReference: {fileID: 1008159903}
+    - target: {fileID: 7182937465743159855, guid: 4387712c4ff582f4eb738458907bae48,
+        type: 3}
+      propertyPath: dialogueManager
+      value: 
+      objectReference: {fileID: 66683455}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4387712c4ff582f4eb738458907bae48, type: 3}
 --- !u!114 &1912922052

@@ -19,7 +19,7 @@ public class TimeHandler : MonoBehaviour
     private GameManager _manager = GameManager.Instance;
     private Coroutine _coroutine;
     [HideInInspector] public bool active = true;
-
+    
     public TextMeshProUGUI livesText;
     public Slider timeSlider;
 
@@ -104,7 +104,7 @@ public class TimeHandler : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown(KeyCode.E) && !GameManager.Instance.tutorialMode)
         {
             //For testing purposes:
             //press space to reset the level
@@ -146,14 +146,21 @@ public class TimeHandler : MonoBehaviour
         while(true)
         {
             //Debug.Log(elapsedTime);
-            timeSlider.value = (seconds - elapsedTime);
-            if (elapsedTime >= seconds)
+            if (!GameManager.Instance.tutorialMode)
             {
-                Die();
-                elapsedTime = 0;
+                timeSlider.value = (seconds - elapsedTime);
+                if (elapsedTime >= seconds)
+                {
+                    Die();
+                    elapsedTime = 0;
+                }
             }
+
             yield return null;
-            elapsedTime += Time.deltaTime;
+            if (!GameManager.Instance.tutorialMode)
+            {
+                elapsedTime += Time.deltaTime;
+            }
             //Debug.Log("Late timeElapsed: " + timeElapsed);
         }
         

@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private string[] scenes;
     [SerializeField] private int lives = 3;
     private int _currentScene = 0;
+    public bool tutorialMode = true;
     
     private void Awake()
     {

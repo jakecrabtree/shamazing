@@ -24,6 +24,7 @@ public class TotemSwitch : MonoBehaviour
     [SerializeField] private Sprite active;
     [SerializeField] private ParticleSystem partSys;
 
+    [SerializeField] private DialogueManager dialogueManager;
 
     private void Awake()
     {
@@ -36,7 +37,7 @@ public class TotemSwitch : MonoBehaviour
 
     private void On()
     {
-        this.GetComponent<SpriteRenderer>().sprite = active;
+        Debug.Log("on");
         switch(dropdown)
         {
             case objectTypes.Door:
@@ -46,13 +47,11 @@ public class TotemSwitch : MonoBehaviour
                 log.Halt();
                 break;
         }
-        audioSource.clip = activationSound;
-        audioSource.Play();
     }
 
     private void Off()
     {
-        this.GetComponent<SpriteRenderer>().sprite = inactive;
+        
         switch (dropdown)
         {
             case objectTypes.Door:
@@ -62,15 +61,21 @@ public class TotemSwitch : MonoBehaviour
                 log.Spin();
                 break;
         }
-        audioSource.clip = deactivationSound;
-        audioSource.Play();
+       
     }
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             partSys.Play();
+            this.GetComponent<SpriteRenderer>().sprite = active;
+            audioSource.clip = activationSound;
+            audioSource.Play();
             On();
+            if (GameManager.Instance.tutorialMode)
+            {
+                dialogueManager.Convo2();
+            }
         }
 
     }
@@ -80,6 +85,9 @@ public class TotemSwitch : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             partSys.Stop();
+            GetComponent<SpriteRenderer>().sprite = inactive;
+            audioSource.clip = deactivationSound;
+            audioSource.Play();
             Off();
         }
     }

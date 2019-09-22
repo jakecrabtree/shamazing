@@ -20,7 +20,7 @@ public class Door : MonoBehaviour
     public void Open()
     {
         Debug.Log("Open");
-        if (++_currSwitches == requiredSwitches)
+        if (++_currSwitches >= requiredSwitches)
         {
             _collider.enabled = false;
             _pSystem.Stop();
