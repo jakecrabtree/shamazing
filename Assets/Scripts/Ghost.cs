@@ -6,16 +6,16 @@ using UnityEngine;
 public class Ghost : MonoBehaviour
 {
     //Object Variables
-<<<<<<< HEAD
+//<<<<<<< HEAD
     public float walkSpeed = 5f;
-    private Rigidbody2D gRigid;
+    public Rigidbody2D gRigid;
     public Animator animatorG;
-=======
-    private float walkSpeed = 5f;
+//=======
+   // private float walkSpeed = 5f;
     [HideInInspector] public float returnTime = 10f;
-    private Rigidbody2D gRigid;
+   // private Rigidbody2D gRigid;
     private Collider2D collider;
->>>>>>> 54a4ef75fc28fff17e0393c6101bc85e0f60c008
+//>>>>>>> 54a4ef75fc28fff17e0393c6101bc85e0f60c008
 
     private Path _path;
 
@@ -43,7 +43,7 @@ public class Ghost : MonoBehaviour
         gRigid.velocity = walkSpeed * new Vector2(point.x_dir, point.y_dir);
     }
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
     private void Update()
     {
         animatorG.SetFloat("horizontal", gRigid.velocity.x);
@@ -52,7 +52,7 @@ public class Ghost : MonoBehaviour
         Debug.Log("horizontal " + gRigid.velocity.x);
     }
 
-=======
+//=======
     public void MoveTowardPlayer()
     {
         StopAllCoroutines();
@@ -106,5 +106,5 @@ public class Ghost : MonoBehaviour
 
 
     
->>>>>>> 54a4ef75fc28fff17e0393c6101bc85e0f60c008
+//>>>>>>> 54a4ef75fc28fff17e0393c6101bc85e0f60c008
 }
