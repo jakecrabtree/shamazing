@@ -6,7 +6,7 @@ using UnityEngine;
 public class Ghost : MonoBehaviour
 {
     //Object Variables
-    private float walkSpeed = 10f;
+    private float walkSpeed = 5f;
     private Rigidbody2D gRigid;
 
     private Path _path;

@@ -2,18 +2,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TimeHandler : MonoBehaviour
 {
-    public float ghostTime = 5f;
+    public float ghostTime = 10f;
+    public int lives = 3;
     public GameObject spawnPoint;
     public GameObject playerPrefab;
     public GameObject ghostPrefab;
     private GameObject _player;
     private List<GameObject> _spawnedGhosts = new List<GameObject>();
-    
+    private GameManager _manager = GameManager.Instance;
+    private Coroutine _coroutine;
+
     private List<Path> _paths;
     private Path _currentPath;
+    private int _currentLives;
     
     float cur_x;
     float cur_y;
@@ -26,6 +31,8 @@ public class TimeHandler : MonoBehaviour
         _currentPath = new Path();
         //Call level reset
         ResetLevel();
+        //Invoke(nameof(Die), ghostTime);
+        _currentLives = lives;
     }
     void ResetLevel()
     {
@@ -47,6 +54,7 @@ public class TimeHandler : MonoBehaviour
 
         //add blank datapoint to currentGhost dataPoint list
         _currentPath.AddDataPoint(initialX, initialY, timeElapsed);
+        _coroutine = StartCoroutine(DieRoutine(ghostTime));
     }
     void FixedUpdate()
     {
@@ -74,15 +82,37 @@ public class TimeHandler : MonoBehaviour
         {
             //For testing purposes:
             //press space to reset the level
-            _paths.Add(_currentPath);
-            _currentPath = new Path();
-            Destroy(_player);
-            foreach (GameObject ghost in _spawnedGhosts)
-            {
-                Destroy(ghost);
-            }
-            _spawnedGhosts.Clear();
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        _currentPath.AddDataPoint(0, 0, timeElapsed);
+        _paths.Add(_currentPath);
+        _currentPath = new Path();
+        Destroy(_player);
+        foreach (GameObject ghost in _spawnedGhosts)
+        {
+            Destroy(ghost);
+        }
+        _spawnedGhosts.Clear();
+        if (--_currentLives == 0)
+        {
+            //TODO death animation
+            SceneManager.LoadScene("DeathScene");
+        }
+        else
+        {
+            StopCoroutine(_coroutine);
             ResetLevel();
         }
     }
+    
+    IEnumerator DieRoutine(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        Die();
+    }
+    
 }
