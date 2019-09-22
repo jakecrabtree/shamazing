@@ -16535,7 +16535,7 @@ MonoBehaviour:
   activationSound: {fileID: 8300000, guid: f73be2d0b7abed841bf5f81abbcd2402, type: 3}
   deactivationSound: {fileID: 8300000, guid: 5c9c92b4055dbd0498542dbe83c203f9, type: 3}
   inactive: {fileID: 21300000, guid: 01c2475f24d6490499e711622c8c1e4b, type: 3}
-  active: {fileID: 21300000, guid: ec3e725ffa3ddcb49be918aed738de2e, type: 3}
+  active: {fileID: 21300000, guid: c197b4e2bf103c047a90bff1ec8fcf86, type: 3}
   partSys: {fileID: 2031706719465306381}
 --- !u!212 &9195499340839021225
 SpriteRenderer:
