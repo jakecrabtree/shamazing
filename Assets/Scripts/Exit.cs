@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class Exit : MonoBehaviour
 {
@@ -64,12 +65,15 @@ public class Exit : MonoBehaviour
                 ghostObject.MoveTowardPlayer();
             }
         }
+        AudioMixer audioMixer = GameManager.Instance.audioMixer;
+        audioMixer.FindSnapshot("Paused").TransitionTo(0.1f);
         audioSource.Play();
         yield return new WaitForSeconds(audioSource.clip.length * 0.6f);
         TimeHandler.instance._player.GetComponent<Player>().active = true;
         TimeHandler.instance.active = true;
         TimeHandler.instance = null;
 
+        audioMixer.FindSnapshot("Default").TransitionTo(0.1f);
         GameManager.Instance.NextLevel();
     }
     

@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdac7ac44a594567b491781b73132f1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 796227b86553f054ab5f8feb4ed54388, type: 2}
   scenes:
   - Tutorial
   - Level 1

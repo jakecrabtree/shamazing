@@ -95,13 +95,13 @@ AudioMixerSnapshotController:
   m_FloatValues:
     a87a56306c0e0cf46881e46fcbc6ac3f: 0
     3a328c32c98331b44997b03cf853f28c: 7.9871106
-    6c2cd252b525b6b409fb0120fecd1c39: 5000
+    6c2cd252b525b6b409fb0120fecd1c39: 2000
     54fd0bb29e1b22c47bbb047fbec37d3e: 8.614072
     21f3479639fc5c94e99eba50adaa793a: 6.01
     bbe5c557a7d732b4497f8f967f10c7da: -15
     4229e02b4c8ed53478b26275867b4af1: 2.850226
     a19fc23cfb7319d4f9c520ddf8dc7f8e: 1.4306194
-    166ede0d75659b945a1996e731defa63: 7.9871106
+    166ede0d75659b945a1996e731defa63: 4
   m_TransitionOverrides: {}
 --- !u!243 &-4256571105892464065
 AudioMixerGroupController:
@@ -252,7 +252,7 @@ AudioMixerController:
     - 8b2282e716912ff40a4a4308273bdafc
     name: Large Categories
   m_CurrentViewIndex: 0
-  m_TargetSnapshot: {fileID: -4585785200998648834}
+  m_TargetSnapshot: {fileID: 24500006}
 --- !u!243 &24300002
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
