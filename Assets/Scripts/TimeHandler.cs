@@ -6,15 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class TimeHandler : MonoBehaviour
 {
+    public static TimeHandler instance;
     public float ghostTime = 10f;
     public int lives = 3;
     public GameObject spawnPoint;
     public GameObject playerPrefab;
     public GameObject ghostPrefab;
-    private GameObject _player;
-    private List<GameObject> _spawnedGhosts = new List<GameObject>();
+    public GameObject _player;
+    [HideInInspector] public List<GameObject> _spawnedGhosts = new List<GameObject>();
     private GameManager _manager = GameManager.Instance;
     private Coroutine _coroutine;
+    [HideInInspector] public bool active = true;
 
     private List<Path> _paths;
     private Path _currentPath;
@@ -23,6 +25,18 @@ public class TimeHandler : MonoBehaviour
     float cur_x;
     float cur_y;
     float timeElapsed;
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
@@ -58,11 +72,14 @@ public class TimeHandler : MonoBehaviour
     }
     void FixedUpdate()
     {
-        //Current InputRaw
-        cur_x = Input.GetAxisRaw("Horizontal");
-        cur_y = Input.GetAxisRaw("Vertical");
-        // Increase TimeElapsed
-        timeElapsed += Time.fixedDeltaTime;
+        if (active)
+        {
+            //Current InputRaw
+            cur_x = Input.GetAxisRaw("Horizontal");
+            cur_y = Input.GetAxisRaw("Vertical");
+            // Increase TimeElapsed
+            timeElapsed += Time.deltaTime;
+        }
 
         TimeDataPoint prev = _currentPath.Back();
 
@@ -76,6 +93,7 @@ public class TimeHandler : MonoBehaviour
             //reset elapsed time since last call
             timeElapsed = 0f;
         }
+        
     }
     void Update()
     {
