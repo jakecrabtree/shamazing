@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Dia
 {
-    [TextArea(3, 3)]
+    [TextArea(3, 3)] //TODO What is this for Cameron?
     public string[] sentences;
 
 }
