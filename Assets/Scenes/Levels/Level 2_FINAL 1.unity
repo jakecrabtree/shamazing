@@ -296,6 +296,16 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7592416154131632104, guid: 6ec9b4677754145c7a48dfa9b6bb8349,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7592416154131632104, guid: 6ec9b4677754145c7a48dfa9b6bb8349,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ec9b4677754145c7a48dfa9b6bb8349, type: 3}
 --- !u!1001 &417671049

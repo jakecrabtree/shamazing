@@ -345,6 +345,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screenFader: {fileID: 1838493415}
+  introFileNames:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  introImage: {fileID: 1563628116}
 --- !u!1 &1563628114
 GameObject:
   m_ObjectHideFlags: 0

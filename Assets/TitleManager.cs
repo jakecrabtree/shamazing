@@ -8,6 +8,9 @@ public class TitleManager : MonoBehaviour
 {
 
     public Image screenFader;
+    public string[] introFileNames;
+    public Image introImage;
+    private int ind = 0;
 
     private void Start()
     {
@@ -20,16 +23,24 @@ public class TitleManager : MonoBehaviour
         if(Input.anyKeyDown)
         {
 
-            StartCoroutine(FadeOut(1f));
+            StartCoroutine(FadeOut(1f, ind++));
         }
     }
 
-    IEnumerator FadeOut(float time)
+    IEnumerator FadeOut(float time, int index)
     {
         screenFader.CrossFadeAlpha(1f, time, false);
         yield return new WaitForSeconds(time);
-        SceneManager.LoadScene(1);
-        //screenFader.CrossFadeAlpha(0f, time, false);
-        yield break;
+        if (index < introFileNames.Length)
+        {
+            screenFader.CrossFadeAlpha(0f, time, false);
+            Sprite sprite = Resources.Load<Sprite>("Intro/" + introFileNames[index]);
+            introImage.sprite = sprite;
+            yield return new WaitForSeconds(time);
+        }
+        else
+        {
+            SceneManager.LoadScene(1);
+        }
     }
 }
