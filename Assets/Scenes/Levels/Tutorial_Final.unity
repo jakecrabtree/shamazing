@@ -4645,8 +4645,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 0}
   scenes:
-  - Tutorial
-  - Level 1
+  - Tutorial_FINAL
+  - Level 1_FINAL
   lives: 3
 --- !u!4 &307779642
 Transform:
@@ -5601,7 +5601,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.122641504, g: 0.122641504, b: 0.122641504, a: 0}
+  m_BackGroundColor: {r: 0.053577796, g: 0.13207549, b: 0.10590959, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
