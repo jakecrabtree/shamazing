@@ -30,6 +30,7 @@ public class Exit : MonoBehaviour
     {
         if (other.CompareTag("Player") &&  _exitable)
         {
+            Debug.Log("Level completed.");
             //TODO Play animation first
             GameManager.Instance.NextLevel();
         }
