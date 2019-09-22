@@ -40,7 +40,7 @@ public class TitleManager : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene("Tutorial_Final");
         }
     }
 }
