@@ -22,13 +22,20 @@ public class Player : MonoBehaviour
 
      void Update()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        if(active)
+        {
+            movement.x = Input.GetAxisRaw("Horizontal");
+            movement.y = Input.GetAxisRaw("Vertical");
 
 
-        animator.SetFloat("horizontal", movement.x);
-        animator.SetFloat("vertical", movement.y);
-        animator.SetFloat("Speed", movement.sqrMagnitude);
+            animator.SetFloat("horizontal", movement.x);
+            animator.SetFloat("vertical", movement.y);
+            animator.SetFloat("Speed", movement.sqrMagnitude);
+        }
+        else
+        {
+            animator.SetFloat("Speed", 0f);
+        }
     }
 
     void FixedUpdate() {
