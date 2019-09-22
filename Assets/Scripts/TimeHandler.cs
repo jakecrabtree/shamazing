@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UI;
 
 public class TimeHandler : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class TimeHandler : MonoBehaviour
     [HideInInspector] public bool active = true;
 
     public TextMeshProUGUI livesText;
+    public Slider timeSlider;
 
     private List<Path> _paths;
     private Path _currentPath;
@@ -51,6 +53,8 @@ public class TimeHandler : MonoBehaviour
         //Invoke(nameof(Die), ghostTime);
         _currentLives = lives;
         livesText.text = "x " + (_currentLives - 1);
+        timeSlider.maxValue = ghostTime;
+        timeSlider.value = ghostTime;
     }
     void ResetLevel()
     {
@@ -135,8 +139,23 @@ public class TimeHandler : MonoBehaviour
     
     IEnumerator DieRoutine(float seconds)
     {
-        yield return new WaitForSeconds(seconds);
-        Die();
+        Debug.Log("Die Routine");
+        timeSlider.maxValue = seconds;
+        float elapsedTime = 0f;
+        while(true)
+        {
+            //Debug.Log(elapsedTime);
+            timeSlider.value = (seconds - elapsedTime);
+            if (elapsedTime >= seconds)
+            {
+                Die();
+                elapsedTime = 0;
+            }
+            yield return null;
+            elapsedTime += Time.deltaTime;
+            //Debug.Log("Late timeElapsed: " + timeElapsed);
+        }
+        
     }
     
 }
