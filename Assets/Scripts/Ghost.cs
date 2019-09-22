@@ -7,7 +7,9 @@ public class Ghost : MonoBehaviour
 {
     //Object Variables
     private float walkSpeed = 5f;
+    [HideInInspector] public float returnTime = 5f;
     private Rigidbody2D gRigid;
+    private Collider2D collider;
 
     private Path _path;
 
@@ -32,5 +34,44 @@ public class Ghost : MonoBehaviour
         point = _path.Get(_path.Size() - 1);
         gRigid.velocity = walkSpeed * new Vector2(point.x_dir, point.y_dir);
     }
+
+    public void MoveTowardPlayer()
+    {
+        StopAllCoroutines();
+        collider = GetComponent<Collider2D>();
+        collider.enabled = false;
+        float playerX = TimeHandler.instance._player.transform.position.x;
+        float playerY = TimeHandler.instance._player.transform.position.y;
+
+        StartCoroutine(MoveTo(playerX, playerY, returnTime));
+    }
+
+    public void MoveTowardPlayer(float moveTime)
+    {
+        StopAllCoroutines();
+        collider = GetComponent<Collider2D>();
+        collider.enabled = false;
+        float playerX = TimeHandler.instance._player.transform.position.x;
+        float playerY = TimeHandler.instance._player.transform.position.y;
+
+        StartCoroutine(MoveTo(playerX, playerY, moveTime));
+    }
+
+    IEnumerator MoveTo(float x, float y, float time)
+    {
+        Vector2 destination = new Vector2(x, y);
+        float timeElapsed = 0;
+
+        while(timeElapsed < time)
+        {
+            transform.position = Vector2.Lerp(transform.position, destination, Time.deltaTime * time);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+        yield break;
+        
+    }
+
+
     
 }

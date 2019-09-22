@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     //Public Game Variables
     public float walkSpeed = 5f;
+    [HideInInspector] public bool active = true;
 
     //Private Game Variables
     private Rigidbody2D pRigid;
@@ -17,8 +18,12 @@ public class Player : MonoBehaviour
     }
     void FixedUpdate() {
 
-        //if we're not controlling a ghost, get keyboard input and translate the player
-        pRigid.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * walkSpeed, Input.GetAxisRaw("Vertical") * walkSpeed);
-        //after player control swaps to ghost, slow player to a nice stop rather than just have it freeze
+        if(active)
+        {
+            //if we're not controlling a ghost, get keyboard input and translate the player
+            pRigid.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * walkSpeed, Input.GetAxisRaw("Vertical") * walkSpeed);
+            //after player control swaps to ghost, slow player to a nice stop rather than just have it freeze
+        }
+
     }
 }
