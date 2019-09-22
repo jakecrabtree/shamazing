@@ -271,6 +271,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5078364213318904648, guid: 61a581000a42941169e1074ccf9d9555,
         type: 3}
+    - target: {fileID: 7592416154131632104, guid: 6ec9b4677754145c7a48dfa9b6bb8349,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7592416154131632104, guid: 6ec9b4677754145c7a48dfa9b6bb8349,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ec9b4677754145c7a48dfa9b6bb8349, type: 3}
 --- !u!1001 &417671049
