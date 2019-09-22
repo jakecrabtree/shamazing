@@ -51,19 +51,18 @@ public class Exit : MonoBehaviour
 
             Time.timeScale = 2f;
 
-            StartCoroutine(VictoryAnimation());
-
+            StartCoroutine(VictoryAnimation(other.gameObject));
             //GameManager.Instance.NextLevel();
         }
     }
 
-    IEnumerator VictoryAnimation()
+    IEnumerator VictoryAnimation(GameObject pew)
     {
         foreach(GameObject ghost in TimeHandler.instance._spawnedGhosts)
         {
             Debug.Log("Ghost Found");
             Ghost ghostObject = ghost.GetComponent<Ghost>();
-            if(ghostObject != null)
+            if (ghostObject != null)
             {
                 ghostObject.MoveTowardPlayer();
             }
@@ -71,6 +70,7 @@ public class Exit : MonoBehaviour
         AudioMixer audioMixer = GameManager.Instance.audioMixer;
         audioMixer.FindSnapshot("Paused").TransitionTo(0.1f);
         audioSource.Play();
+        StartCoroutine(Pew(pew));
         yield return new WaitForSeconds(audioSource.clip.length * 0.8f);
         TimeHandler.instance._player.GetComponent<Player>().active = true;
         TimeHandler.instance.active = true;
@@ -78,6 +78,22 @@ public class Exit : MonoBehaviour
 
         audioMixer.FindSnapshot("Default").TransitionTo(0.1f);
         Time.timeScale = 1f;
+    }
+
+    IEnumerator Pew(GameObject pew)
+    {
+        yield return new WaitForSeconds(audioSource.clip.length * 0.7gif);
+        GameObject ring = pew.GetComponent<Player>().ring;
+        ring.SetActive(true);
+        Vector2 scale = ring.transform.localScale;
+        for (float i = 0; i <= 1f; i += Time.fixedDeltaTime)
+        {
+            ring.transform.localScale = Vector2.Lerp(scale, Vector2.one * 20f, i);
+            yield return new WaitForSeconds(Time.fixedDeltaTime);
+        }
+
+        ring.transform.localScale = scale;
+        ring.SetActive(false);
         GameManager.Instance.NextLevel();
     }
     

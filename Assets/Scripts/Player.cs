@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
 
     //Private Game Variables
     private Rigidbody2D pRigid;
+    public GameObject ring;
+
 
     void Start() {
         //obtain rigidbody object from attached player object

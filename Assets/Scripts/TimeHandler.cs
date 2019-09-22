@@ -122,12 +122,13 @@ public class TimeHandler : MonoBehaviour
         {
             Destroy(ghost);
         }
+
         _spawnedGhosts.Clear();
         _currentLives--;
         livesText.text = "x " + (_currentLives - 1);
         if (_currentLives == 0)
         {
-            //TODO death animation
+
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         else
@@ -136,7 +137,7 @@ public class TimeHandler : MonoBehaviour
             ResetLevel();
         }
     }
-    
+
     IEnumerator DieRoutine(float seconds)
     {
         Debug.Log("Die Routine");
