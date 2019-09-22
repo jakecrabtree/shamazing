@@ -59,7 +59,20 @@ public class Ghost : MonoBehaviour
 
     IEnumerator MoveTo(float x, float y, float time)
     {
-        Vector2 destination = new Vector2(x, y);
+        Vector3 destination = new Vector3(x, y, 0);
+
+        float sqrRemainingDistance = (transform.position - destination).sqrMagnitude;
+
+        while(sqrRemainingDistance > float.Epsilon)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, destination, (1 / returnTime) * Time.deltaTime);
+
+            sqrRemainingDistance = (transform.position - destination).sqrMagnitude;
+
+            yield return null;
+        }
+
+        /*
         float timeElapsed = 0;
 
         while(timeElapsed < time)
@@ -68,6 +81,7 @@ public class Ghost : MonoBehaviour
             timeElapsed += Time.deltaTime;
             yield return null;
         }
+        */
         yield break;
         
     }
