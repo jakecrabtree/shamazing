@@ -50,6 +50,7 @@ public class TimeHandler : MonoBehaviour
         ResetLevel();
         //Invoke(nameof(Die), ghostTime);
         _currentLives = lives;
+        livesText.text = "x " + (_currentLives - 1);
     }
     void ResetLevel()
     {
@@ -119,11 +120,11 @@ public class TimeHandler : MonoBehaviour
         }
         _spawnedGhosts.Clear();
         _currentLives--;
-        livesText.text = "x " + _currentLives;
+        livesText.text = "x " + (_currentLives - 1);
         if (_currentLives == 0)
         {
             //TODO death animation
-            SceneManager.LoadScene("DeathScene");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         else
         {
