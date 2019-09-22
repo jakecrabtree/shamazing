@@ -82,7 +82,7 @@ public class Exit : MonoBehaviour
 
     IEnumerator Pew(GameObject pew)
     {
-        yield return new WaitForSeconds(audioSource.clip.length * 0.7gif);
+        yield return new WaitForSeconds(audioSource.clip.length * 0.7f);
         GameObject ring = pew.GetComponent<Player>().ring;
         ring.SetActive(true);
         Vector2 scale = ring.transform.localScale;
