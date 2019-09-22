@@ -8,9 +8,11 @@ public class Key : MonoBehaviour
 {
    [SerializeField] private Exit exit;
 
-   public void OnCollisionEnter2D(Collision2D other)
+   public void OnTriggerEnter2D(Collider2D other)
    {
-      if (!other.collider.CompareTag("Player")) return;
+        Debug.Log("Trigger entered");
+      if (!other.CompareTag("Player")) return;
+      Debug.Log("Key collected");
       exit.AddKey();
       Destroy(gameObject);
    }
