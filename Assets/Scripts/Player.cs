@@ -8,6 +8,9 @@ public class Player : MonoBehaviour
     //Public Game Variables
     public float walkSpeed = 5f;
     [HideInInspector] public bool active = true;
+    public Animator animator;
+
+    Vector2 movement;
 
     //Private Game Variables
     private Rigidbody2D pRigid;
@@ -16,6 +19,18 @@ public class Player : MonoBehaviour
         //obtain rigidbody object from attached player object
         pRigid = gameObject.GetComponent<Rigidbody2D>();
     }
+
+     void Update()
+    {
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+
+
+        animator.SetFloat("horizontal", movement.x);
+        animator.SetFloat("vertical", movement.y);
+        animator.SetFloat("Speed", movement.sqrMagnitude);
+    }
+
     void FixedUpdate() {
 
         if(active)
