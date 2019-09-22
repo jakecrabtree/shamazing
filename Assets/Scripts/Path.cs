@@ -6,11 +6,13 @@ public class Path
 {
     private List<TimeDataPoint> _dataPoints = new List<TimeDataPoint>();
 
-    public void AddDataPoint(float dir_x, float dir_y, float time) {
+    public void AddDataPoint(float dir_x, float dir_y, float x_pos, float y_pos, float time) {
         TimeDataPoint curPoint = new TimeDataPoint
         {
             x_dir = dir_x,
             y_dir = dir_y,
+            x_pos = x_pos,
+            y_pos = y_pos,
             time = time
         };
         _dataPoints.Add(curPoint);
