@@ -4643,7 +4643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdac7ac44a594567b491781b73132f1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioMixer: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: 796227b86553f054ab5f8feb4ed54388, type: 2}
   scenes:
   - Tutorial_FINAL
   - Level 1_FINAL
@@ -6530,6 +6530,11 @@ PrefabInstance:
     - target: {fileID: 5472798440884141013, guid: a1d075b93419e4728b76e78fa4fd2b4e,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5472798442375652302, guid: a1d075b93419e4728b76e78fa4fd2b4e,
+        type: 3}
+      propertyPath: requiredKeys
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -16621,7 +16626,7 @@ MonoBehaviour:
   activationSound: {fileID: 8300000, guid: f73be2d0b7abed841bf5f81abbcd2402, type: 3}
   deactivationSound: {fileID: 8300000, guid: 5c9c92b4055dbd0498542dbe83c203f9, type: 3}
   inactive: {fileID: 21300000, guid: 01c2475f24d6490499e711622c8c1e4b, type: 3}
-  active: {fileID: 21300000, guid: ec3e725ffa3ddcb49be918aed738de2e, type: 3}
+  active: {fileID: 21300000, guid: c197b4e2bf103c047a90bff1ec8fcf86, type: 3}
   partSys: {fileID: 2031706719465306381}
 --- !u!212 &9195499340839021225
 SpriteRenderer:
